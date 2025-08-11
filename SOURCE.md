@@ -22,10 +22,11 @@ Once Python is installed, open Terminal and run the following:
 # Move into a directory to store the project
 cd ~/Developer
 # Clone project
-git clone https://github.com/dortania/OpenCore-Legacy-Patcher
+git clone https://github.com/hackdoc/OCLP-R.git
 # Move into Project directory
-cd ./OpenCore-Legacy-Patcher
+cd ./OCLP-R
 # Install Python dependencies used by the project
+# Notes: In requirements.txt, if you don't run Py3.11, you should delete this
 pip3 install -r requirements.txt
 ```
 
@@ -41,14 +42,14 @@ To run the project from source, simply invoke via python3:
 
 ```sh
 # Launch GUI
-python3 OpenCore-Patcher-GUI.command
+python3 OCLP-R-GUI.command
 ```
 
 Note that the OpenCore-Patcher-GUI.command file can be run as both a GUI and a CLI utility for other programs to call. If no core arguments are passed, the GUI is initialized. Otherwise the CLI will start:
 
 ```sh
 # Launch CLI
-python3 OpenCore-Patcher-GUI.command --build --model iMac12,2 --verbose
+python3 OCLP-R-GUI.command --build --model iMac12,2 --verbose
 ```
 
 Pass `-h` or `--help` for more information on supported CLI arguments.
@@ -61,13 +62,13 @@ The main goal of generating prebuilt binaries is to strip the requirement of a l
 # Install PyInstaller
 pip3 install pyinstaller
 # Move into project directory
-cd ~/Developer/OpenCore-Legacy-Patcher/
+cd ~/Developer/OCLP-R/
 # Create the pyinstaller based Application
 python3 Build-Project.command
 # Open build folder
 open ./dist/
 ```
 
-Once done, you'll find the application generated at `./dist/OpenCore-Patcher.app`:
+Once done, you'll find the application generated at `./dist/OCLP-R.app`:
 
 ![](./images/build-dist.png)
