@@ -30,7 +30,7 @@ jobs:
           rm -rf Univ*
           rm -rf *pay*.dmg
           /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 -m pip install -r requirements.txt
-          aria2c -x 16 "https://github.com/pyquick/PatcherSupportPkg/releases/download/push-d0051499682b521a8a6eee339408b8865d6a1269/Universal-Binaries.dmg"
+          aria2c -x 16 "https://github.com/hackdoc/PatcherSupportPkg/releases/download/push-8f0fc7d8311f13b55a05287db5e873d1a19fb5a8/Universal-Binaries.dmg"
       
       - name: Force Universal2 charset for Python
         run: |
@@ -70,10 +70,11 @@ jobs:
         if: github.event_name == 'push'
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: push-${{ github.sha }}
-          name: 2.5.2 Beta 1
+          #tag_name: push-${{ github.sha }}
+          tag_name: 2.5.2
+          name: 2.5.2
           body: ${{ github.event.head_commit.message }}
-          prerelease: true
+          prerelease: false
           files: |
             ./dist/AutoPkg-Assets.pkg
             ./dist/OCLP-R.pkg
