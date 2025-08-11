@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /homepage.png
-heroText: OpenCore Legacy Patcher
+heroText: OCLP-R
 actionText: Getting Started→
 actionLink: START.md
 

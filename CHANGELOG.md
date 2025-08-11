@@ -1,5 +1,6 @@
-# OpenCore Legacy Patcher changelog
-## 2.4.1
+# OCLP-R changelog
+## 2.6.0
+## 2.5.0
 - Add macOS 26 constants
 - Allow macOS 26 Beta download
 - Add macOS 26 USB-Map-Tahoe.kext

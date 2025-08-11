@@ -1,6 +1,6 @@
-# OpenCore Legacy Patcher Privileged Helper Tool
+# OCLP-R Privileged Helper Tool
 
-`com.dortania.opencore-legacy-patcher.privileged-helper` is OpenCore Legacy Patcher's Privileged Helper Tool.
+`com.dortania.opencore-legacy-patcher.privileged-helper` is OCLP-R's Privileged Helper Tool.
 
 The architecture is as such:
 1. The main application (OpenCore-Patcher.app) will send arguments to the privileged helper tool to execute.
@@ -12,7 +12,7 @@ The helper tool is able to execute code as root by using the "Set UID" bit prese
 
 ## Running from source
 
-Since running OpenCore Legacy Patcher from source will lack Dortania's code signature, you will need to disable code signature verification in the privileged helper tool otherwise root commands will fail.
+Since running OCLP-R from source will lack Dortania's code signature, you will need to disable code signature verification in the privileged helper tool otherwise root commands will fail.
 
 To do so, compile the privileged helper tool with debug:
 ```
@@ -31,4 +31,4 @@ If possible, we highly recommend creating a developer account with Apple and sig
 * Note that Dortania's Team ID will need to be replaced in main.m with your own Team ID (`S74BDJXQMD` -> `YOUR_TEAM`)
 * Additionally you will be required to compile OpenCore-Patcher.app with your own Developer ID Application certificate
 
-If this is not possible, we recommend using [OpenCore Legacy Patcher's prebuilt binaries](../../SOURCE.md) instead.
+If this is not possible, we recommend using [OCLP-R's prebuilt binaries](../../SOURCE.md) instead.

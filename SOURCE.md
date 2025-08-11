@@ -1,10 +1,10 @@
 # Build and run from source
 
-OpenCore Legacy Patcher at its core is a Python-based GUI/CLI-based application. In turn, to run the project from source, you simply need to invoke the OpenCore-Patcher-GUI.command file via Python.
+OCLP-R at its core is a Python-based GUI/CLI-based application. In turn, to run the project from source, you simply need to invoke the OpenCore-Patcher-GUI.command file via Python.
 
 For developers wishing to validate mainline changes, you may use this link: [GUI (Graphical Based App)](https://nightly.link/dortania/OpenCore-Legacy-Patcher/workflows/build-app-wxpython/main/OpenCore-Patcher.pkg.zip)
 
-* **Warning**: Nightly builds (untagged builds built from the latest commit) are actively developed OpenCore Legacy Patcher builds. These builds have not been tested, are not guaranteed to work, and are not guaranteed to be safe. Do not use nightlies without a good reason to do so, and do not use them on your main machine. Additionally, these binaries should not be used without first consulting the [CHANGELOG](./CHANGELOG.md).
+* **Warning**: Nightly builds (untagged builds built from the latest commit) are actively developed OCLP-R builds. These builds have not been tested, are not guaranteed to work, and are not guaranteed to be safe. Do not use nightlies without a good reason to do so, and do not use them on your main machine. Additionally, these binaries should not be used without first consulting the [CHANGELOG](./CHANGELOG.md).
 
   **Do not share _any_ links to these binaries** in forums; please link to **this document only**.
   * Additionally, do not reupload these binaries or download binaries from other sites. Using binaries from untrusted sources is a security issue, as they may have been tampered with.
@@ -35,7 +35,7 @@ If you have any installation errors, see the following troubleshooting options:
   * Our build server currently uses Python 3.11 for generating binaries used in releases
 * Use .whl snapshots for installing additional dependencies
 
-## Running OpenCore Legacy Patcher
+## Running OCLP-R
 
 To run the project from source, simply invoke via python3:
 
