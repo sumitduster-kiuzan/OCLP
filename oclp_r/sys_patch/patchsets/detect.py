@@ -176,7 +176,7 @@ class HardwarePatchsetDetection:
         if self._xnu_major < os_data.big_sur.value:
             return False
 
-        # OCLP-R exposes whether it patched APFS.kext to allow for FileVault
+        # OpenCore Legacy Patcher exposes whether it patched APFS.kext to allow for FileVault
         nvram = utilities.get_nvram("OCLP-Settings", "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102", decode=True)
         if nvram:
             if "-allow_fv" in nvram:
@@ -273,16 +273,16 @@ class HardwarePatchsetDetection:
 
     def _hackdoc_internal_check(self) -> None:
         """
-        Determine whether to unlock Hackdoc Developer mode
+        Determine whether to unlock sumitduster Developer mode
         """
-        return Path("~/.hackdoc_developer").expanduser().exists()
+        return Path("~/.sumitduster_developer").expanduser().exists()
 
 
     def _already_has_networking_patches(self) -> bool:
         """
         Check if network patches are already applied
         """
-        oclp_patch_path = "/System/Library/CoreServices/OCLP-R.plist"
+        oclp_patch_path = "/System/Library/CoreServices/OpenCore Legacy Patcher.plist"
         if not Path(oclp_patch_path).exists():
             return False
         try:

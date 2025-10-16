@@ -11,7 +11,7 @@
 
 # MARK: Variables
 # ---------------------------
-helperName="com.hackdoc.oclp-r.privileged-helper"
+helperName="com.sumitduster.oclp-r.privileged-helper"
 helperPath="/Library/PrivilegedHelperTools/$helperName"
 
 # MARK: Functions

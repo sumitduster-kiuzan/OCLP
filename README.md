@@ -1,6 +1,6 @@
 <div align="center">
              <img src="docs/images/OC-Patcher.png" alt="OpenCore Patcher Logo" width="256" />
-             <h1>OCLP-R</h1>
+            <h1>OpenCore Legacy Patcher</h1>
 </div>
 
 A Python-based project revolving around [Acidanthera's OpenCorePkg](https://github.com/acidanthera/OpenCorePkg) and [Lilu](https://github.com/acidanthera/Lilu) for both running and unlocking features in macOS on supported and unsupported Macs.
@@ -8,12 +8,12 @@ A Python-based project revolving around [Acidanthera's OpenCorePkg](https://gith
 Our project's main goal is to breathe new life into Macs no longer supported by Apple, allowing for the installation and usage of macOS Big Sur and newer on machines as old as 2007.
 
 ----------
-![GitHub all releases](https://img.shields.io/github/release/hackdoc/OCLP-R)
-![GitHub all releases](https://img.shields.io/github/downloads/hackdoc/OCLP-R/total?color=white&style=plastic) ![GitHub top language](https://img.shields.io/github/languages/top/hackdoc/OCLP-R?color=4B8BBE&style=plastic)
+![GitHub all releases](https://img.shields.io/github/release/sumitduster/OCLP-R)
+![GitHub all releases](https://img.shields.io/github/downloads/sumitduster/OCLP-R/total?color=white&style=plastic) ![GitHub top language](https://img.shields.io/github/languages/top/sumitduster/OCLP-R?color=4B8BBE&style=plastic)
 
 ----------
 
-Noteworthy features of OCLP-R:
+Noteworthy features of OpenCore Legacy Patcher:
 
 * Support for macOS Big Sur, Monterey, Ventura, Sonoma and Sequoia
 * Native Over the Air (OTA) System Updates
@@ -32,7 +32,7 @@ Note: Only clean-installs and upgrades are supported. macOS Big Sur installs alr
 
 * You can, however, reinstall macOS with this patcher and retain your original data
 
-Note 2: Currently, OCLP-R officially supports patching to run macOS Big Sur through Sonoma installs. For older OSes, OpenCore may function; however, support is currently not provided from Dortania.
+Note 2: Currently, OpenCore Legacy Patcher officially supports patching to run macOS Big Sur through Sonoma installs. For older OSes, OpenCore may function; however, support is currently not provided from Dortania.
 
 * For macOS Mojave and Catalina support, we recommend the use of [dosdude1's patchers](http://dosdude1.com)
 
@@ -40,7 +40,7 @@ Note 2: Currently, OCLP-R officially supports patching to run macOS Big Sur thro
 
 To start using the project, please see our in-depth guide:
 
-* [OCLP-R Guide](https://dortania.github.io/OpenCore-Legacy-Patcher/)
+* [OpenCore Legacy Patcher Guide](https://dortania.github.io/OpenCore-Legacy-Patcher/)
 
 
 ## Running from source
@@ -51,7 +51,7 @@ To run the project from source, see here: [Build and run from source](./SOURCE.m
 
 * [Acidanthera](https://github.com/Acidanthera)
   * OpenCorePkg, as well as many of the core kexts and tools
-* [Hackdoc](https://github.com/hackdoc)
+* [sumitduster](https://github.com/sumitduster)
   * Main co-author
 * [vit9696](https://github.com/vit9696)
   * Endless amount of help troubleshooting, determining fixes and writing patches

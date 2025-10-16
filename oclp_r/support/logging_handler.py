@@ -47,7 +47,7 @@ class InitializeLoggingSupport:
 
         log_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")
 
-        self.log_filename: str  = f"OCLP-R_{self.constants.patcher_version}_{log_time}.log"
+        self.log_filename: str  = f"OpenCore Legacy Patcher_{self.constants.patcher_version}_{log_time}.log"
         self.log_filepath: Path = None
 
         self.original_excepthook:        sys       = sys.excepthook
@@ -73,13 +73,13 @@ class InitializeLoggingSupport:
             # Likely in an installer environment, store in /Users/Shared
             base_path = Path("/Users/Shared")
         else:
-            # create Hackdoc folder if it doesn't exist
-            base_path = base_path / "Hackdoc"
+            # create sumitduster folder if it doesn't exist
+            base_path = base_path / "sumitduster"
             if not base_path.exists():
                 try:
                     base_path.mkdir()
                 except Exception as e:
-                    print(f"Failed to create Hackdoc folder: {e}")
+                    print(f"Failed to create sumitduster folder: {e}")
                     base_path = Path("/Users/Shared")
 
         self.log_filepath = Path(f"{base_path}/{self.log_filename}").expanduser()
@@ -93,7 +93,7 @@ class InitializeLoggingSupport:
         """
 
         paths = [
-            self.log_filepath.parent,        # ~/Library/Logs/Hackdoc
+            self.log_filepath.parent,        # ~/Library/Logs/sumitduster
             self.log_filepath.parent.parent, # ~/Library/Logs (old location)
         ]
 
@@ -166,7 +166,7 @@ class InitializeLoggingSupport:
         Start logging, used as easily identifiable start point in logs
         """
 
-        str_msg = f"# OCLP-R ({self.constants.patcher_version}) #"
+        str_msg = f"# OpenCore Legacy Patcher ({self.constants.patcher_version}) #"
         str_len = len(str_msg)
 
         logging.info('#' * str_len)
@@ -202,7 +202,7 @@ class InitializeLoggingSupport:
             if self.constants.cli_mode is True:
                 return
 
-            error_msg = f"OCLP-R encountered the following internal error:\n\n"
+            error_msg = f"OpenCore Legacy Patcher encountered the following internal error:\n\n"
             error_msg += f"{type.__name__}: {value}"
             if tb:
                 error_msg += f"\n\n{traceback.extract_tb(tb)[-1]}"
@@ -211,7 +211,7 @@ class InitializeLoggingSupport:
 
             # Ask user if they want to send crash report
             try:
-                result = applescript.AppleScript(f'display dialog "{error_msg}" with title "OCLP-R ({self.constants.patcher_version})" buttons {{"Yes", "No"}} default button "Yes" with icon caution').run()
+                result = applescript.AppleScript(f'display dialog "{error_msg}" with title "OpenCore Legacy Patcher ({self.constants.patcher_version})" buttons {{"Yes", "No"}} default button "Yes" with icon caution').run()
             except Exception as e:
                 logging.error(f"Failed to display crash report dialog: {e}")
                 return

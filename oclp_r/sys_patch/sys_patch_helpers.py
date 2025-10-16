@@ -103,7 +103,7 @@ class SysPatchHelpers:
             metallib_used_string = metallib_used
 
         data = {
-            "OCLP-R": f"v{self.constants.patcher_version}",
+            "OpenCore Legacy Patcher": f"v{self.constants.patcher_version}",
             "PatcherSupportPkg": f"v{self.constants.patcher_support_pkg_version}",
             "Time Patched": f"{datetime.now().strftime('%B %d, %Y @ %H:%M:%S')}",
             "Commit URL": f"{self.constants.commit_info[2]}",
@@ -162,7 +162,7 @@ class SysPatchHelpers:
         which forgets to handle Preboot BootKC syncing.
 
         Thus this application will try to re-sync the BootKC with SysKC in the event of a panic
-            Reference: https://github.com/hackdoc/OpenCore-Legacy-Patcher/issues/1019
+            Reference: https://github.com/sumitduster/OpenCore-Legacy-Patcher/issues/1019
 
         This is a (hopefully) temporary work-around, however likely to stay.
         RSRRepair has the added bonus of fixing desynced KCs from 'bless', so useful in Big Sur+
