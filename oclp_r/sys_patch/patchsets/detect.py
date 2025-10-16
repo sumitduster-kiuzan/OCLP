@@ -8,7 +8,7 @@ import subprocess
 import py_sip_xnu
 import packaging.version
 
-from enum      import StrEnum
+from enum      import Enum
 from pathlib   import Path
 from functools import cache
 
@@ -32,10 +32,11 @@ from .hardware.graphics import (
     amd_polaris,
     amd_vega,
 )
-from .hardware.networking import (
-    legacy_wireless,
-    modern_wireless,
-)
+# WiFi patches removed
+# from .hardware.networking import (
+#     legacy_wireless,
+#     modern_wireless,
+# )
 from .hardware.misc import (
     display_backlight,
     gmux,
@@ -63,7 +64,7 @@ from ...detections import (
 )
 
 
-class HardwarePatchsetSettings(StrEnum):
+class HardwarePatchsetSettings(str, Enum):
     """
     Enum for patch settings
     """
@@ -73,7 +74,7 @@ class HardwarePatchsetSettings(StrEnum):
     METALLIB_SUPPORT_PKG_MISSING  = "Settings: MetallibSupportPkg.pkg missing"
 
 
-class HardwarePatchsetValidation(StrEnum):
+class HardwarePatchsetValidation(str, Enum):
     """
     Enum for validation settings
     """
@@ -124,8 +125,9 @@ class HardwarePatchsetDetection:
             amd_polaris.AMDPolaris,
             amd_vega.AMDVega,
 
-            legacy_wireless.LegacyWireless,
-            modern_wireless.ModernWireless,
+            # WiFi patches removed
+            # legacy_wireless.LegacyWireless,
+            # modern_wireless.ModernWireless,
 
             display_backlight.DisplayBacklight,
             gmux.GraphicsMultiplexer,
@@ -151,7 +153,7 @@ class HardwarePatchsetDetection:
         Determine if host OS is unsupported
         """
         _min_os = os_data.big_sur.value
-        _max_os = os_data.sequoia.value
+        _max_os = os_data.tahoe.value  # Updated to support Tahoe (macOS 15.x)
         if self._hackdoc_internal_check() is True:
             return False
         if self._xnu_major < _min_os or self._xnu_major > _max_os:
@@ -273,7 +275,7 @@ class HardwarePatchsetDetection:
 
     def _hackdoc_internal_check(self) -> None:
         """
-        Determine whether to unlock sumitduster Developer mode
+        Determine whether to unlock Sumit Duster Developer mode
         """
         return Path("~/.sumitduster_developer").expanduser().exists()
 

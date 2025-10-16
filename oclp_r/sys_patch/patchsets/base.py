@@ -2,10 +2,10 @@
 base.py: Base class for all patch sets
 """
 
-from enum import StrEnum
+from enum import Enum
 
 
-class PatchType(StrEnum):
+class PatchType(str, Enum):
     """
     Type of patch
     """
@@ -18,7 +18,7 @@ class PatchType(StrEnum):
     EXECUTE                 = "Execute"
 
 
-class DynamicPatchset(StrEnum):
+class DynamicPatchset(str, Enum):
     MetallibSupportPkg = "MetallibSupportPkg"
 
 

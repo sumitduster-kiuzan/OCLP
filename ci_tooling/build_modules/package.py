@@ -24,7 +24,7 @@ class GeneratePackage:
             "./ci_tooling/privileged_helper_tool/com.sumitduster.oclp-r.privileged-helper": "/Library/PrivilegedHelperTools/com.sumitduster.oclp-r.privileged-helper",
         }
         self._autopkg_files = {
-            "./payloads/Launch Services/com.sumitduster.oclp-r.auto-patch.plist": "/Library/LaunchAgents/com.sumitduster.oclp-r.auto-patch.plist",
+            "./payloads/Launch Services/com.hackdoc.oclp-r.auto-patch.plist": "/Library/LaunchAgents/com.sumitduster.oclp-r.auto-patch.plist",
         }
         self._autopkg_files.update(self._files)
 

@@ -1,4 +1,30 @@
 # OCLP-R changelog
+## 3.0.1
+- Complete rebranding to "Sumit Duster"
+  - Updated all copyright notices to "Copyright © 2020-2025 Sumit Duster"
+  - Changed repository URLs to point to `sumitduster/OCLP-R`
+  - Updated all bundle identifiers to use `com.sumitduster.*` namespace
+  - Modified installation paths to `/Library/Application Support/sumitduster/`
+- Enhanced HDA (High Definition Audio) support for macOS Tahoe (15.x)
+  - Added Tahoe-specific audio patches with version 15.0 kext support
+  - Extended model support for 2012-2013 Macs on Tahoe
+  - Implemented version-aware patching for optimal compatibility
+  - Added enhanced audio frameworks (CoreAudio, AudioToolbox) for Tahoe
+- Removed WiFi patch functionality
+  - Disabled legacy wireless support (BCM94328, BCM94322, Atheros)
+  - Disabled modern wireless support (BCM94360, BCM94331)
+  - Removed WiFi-related kext injection from EFI builds
+  - Cleaned up detection system to exclude wireless patches
+- Updated developer mode references
+  - Changed developer mode file from `~/.oclp-r_developer` to `~/.sumitduster_developer`
+  - Updated all internal developer mode checks and references
+- Modified privileged helper tool naming
+  - Renamed to `com.sumitduster.oclp-r.privileged-helper`
+  - Updated all launch service plist files with new identifiers
+- Updated internal resource naming
+  - Changed from `oclp-rInternalResources.dmg` to `sumitdusterInternalResources.dmg`
+  - Updated PyInstaller spec file accordingly
+
 ## 2.6.0
 ## 2.5.0
 - Add macOS 26 constants

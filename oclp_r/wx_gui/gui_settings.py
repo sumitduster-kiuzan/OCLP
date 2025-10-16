@@ -10,6 +10,7 @@ import py_sip_xnu
 import subprocess
 
 from pathlib import Path
+from typing import Union
 
 from .. import constants
 
@@ -236,7 +237,7 @@ class SettingsFrame(wx.Frame):
         {
             "Tab Name": {
                 "type": "title" | "checkbox" | "spinctrl" | "populate" | "wrap_around",
-                "value": bool | int | str,
+                "value": Union[bool, int, str],
                 "variable": str,  (Variable name)
                 "constants_variable": str, (Constants variable name, if different from "variable")
                 "description": [str, str, str], (List of strings)
@@ -827,7 +828,7 @@ class SettingsFrame(wx.Frame):
                     "variable": "DisableCrashAndAnalyticsReporting",
                     "description": [
                         "When enabled, patcher will not",
-                        "report any info to sumitduster.",
+                        "report any info to Sumit Duster.",
                     ],
                     "override_function": self._update_global_settings,
                 },
@@ -1197,7 +1198,7 @@ Hardware Information:
 
 
     def on_generate_serial_number(self, event: wx.Event) -> None:
-        dlg = wx.MessageDialog(self.frame_modal, "Please take caution when using serial spoofing. This should only be used on machines that were legally obtained and require reserialization.\n\nNote: new serials are only overlayed through OpenCore and are not permanently installed into ROM.\n\nMisuse of this setting can break power management and other aspects of the OS if the system does not need spoofing\n\nsumitduster does not condone the use of our software on stolen devices.\n\nAre you certain you want to continue?", "Warning", wx.YES_NO | wx.ICON_WARNING | wx.NO_DEFAULT)
+        dlg = wx.MessageDialog(self.frame_modal, "Please take caution when using serial spoofing. This should only be used on machines that were legally obtained and require reserialization.\n\nNote: new serials are only overlayed through OpenCore and are not permanently installed into ROM.\n\nMisuse of this setting can break power management and other aspects of the OS if the system does not need spoofing\n\nSumit Duster does not condone the use of our software on stolen devices.\n\nAre you certain you want to continue?", "Warning", wx.YES_NO | wx.ICON_WARNING | wx.NO_DEFAULT)
         if dlg.ShowModal() != wx.ID_YES:
             return
 
@@ -1363,7 +1364,7 @@ Hardware Information:
             screen_location=self.parent.GetPosition(),
             url=f"https://nightly.link/sumitduster/OCLP-R/workflows/build-app-wxpython/{branch}/OCLP-R.pkg.zip",
             #version_label="(Nightly)"
-            version_label="(Nightly)"
+            version_label=""
         )
 
 

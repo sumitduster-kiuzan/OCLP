@@ -13,13 +13,13 @@ from .detections import device_probe
 class Constants:
     def __init__(self) -> None:
         # Patcher Versioning
-        self.patcher_version:                 str = "2.5.2"  # OpenCore Legacy Patcher
+        self.patcher_version:                 str = "3.0.1"  # OpenCore Legacy Patcher
         self.patcher_support_pkg_version:     str = "1.9.5"  # PatcherSupportPkg
-        self.copyright_date:                  str = "Copyright © 2020-2025 Dortania and sumitduster"
+        self.copyright_date:                  str = "Copyright © 2020-2025 Sumit Duster"
         self.patcher_name:                    str = "OpenCore Legacy Patcher"
 
         # URLs
-        self.url_patcher_support_pkg:         str = "https://github.com/sumitduster/PatcherSupportPkg/releases/download/"
+        self.url_patcher_support_pkg:         str = "https://github.com/dortania/PatcherSupportPkg/releases/download/"
         self.discord_link:                    str = "https://discord.gg/rqdPgH8xSN"
         self.guide_link:                      str = "https://dortania.github.io/OpenCore-Legacy-Patcher/"
         self.repo_link:                       str = "https://github.com/sumitduster/OCLP-R"
@@ -76,7 +76,7 @@ class Constants:
         self.apple_spi_hid_version: str = "1.0.0"  #  AppleHSSPIHIDDriver (14.4 Beta 1)
         self.kernel_relay_version:  str = "1.0.0"  #  KernelRelayHost (15.0 Beta 3)
 
-        ## Apple - sumitduster Modified
+        ## Apple - Sumit Duster Modified
         self.bcm570_version:           str = "1.0.2"  # CatalinaBCM5701Ethernet
         self.i210_version:             str = "1.0.0"  # CatalinaIntelI210Ethernet
         self.corecaptureelcap_version: str = "1.0.2"  # corecaptureElCap
@@ -89,8 +89,8 @@ class Constants:
         ## Apple - Jazzzny Modified
         self.aquantia_version: str = "1.1.0"  # AppleEthernetAbuantiaAqtion
 
-        ## sumitduster
-        ## https://github.com/sumitduster
+        ## Sumit Duster
+        ## https://github.com/sumitduster/OCLP-R
         self.backlight_injector_version:     str = "1.1.0"  # BacklightInjector
         self.backlight_injectorA_version:    str = "1.0.0"  # BacklightInjector (iMac9,1)
         self.smcspoof_version:               str = "1.0.0"  # SMC-Spoof

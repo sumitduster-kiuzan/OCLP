@@ -94,7 +94,7 @@ Please check the Github page for more information about this release."""
             sizer.AddSpacer(10)
             self.title_text = wx.StaticText(panel, label="A new version of OpenCore Legacy Patcher is available!")
             #nightly_label="(Nightly)"
-            nightly_label="(Nightly)"
+            nightly_label=""
             self.description = wx.StaticText(panel, label=f"OpenCore Legacy Patcher {version} is now available - You have {self.constants.patcher_version}{f' {nightly_label}' if not self.constants.commit_info[0].startswith('refs/tags') else ''}. Would you like to update?")
             self.title_text.SetFont(gui_support.font_factory(19, wx.FONTWEIGHT_BOLD))
             self.description.SetFont(gui_support.font_factory(13, wx.FONTWEIGHT_NORMAL))

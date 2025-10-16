@@ -10,8 +10,9 @@ https://github.com/WebKit/WebKit/commit/c15e741266db8ff9df309ce9971eda1cfd9021cc
 
 from ..base import BaseHardware, HardwareVariant
 
-from ..networking.legacy_wireless import LegacyWireless
-from ..networking.modern_wireless import ModernWireless
+# WiFi patches removed
+# from ..networking.legacy_wireless import LegacyWireless
+# from ..networking.modern_wireless import ModernWireless
 
 from ...base import PatchType
 
@@ -53,10 +54,11 @@ class CPUMissingAVX(BaseHardware):
         if self._xnu_major != os_data.ventura.value:
             return True
 
-        if LegacyWireless(self._xnu_major, self._xnu_minor, self._os_build, self._constants).present() is True:
-            return True
-        if ModernWireless(self._xnu_major, self._xnu_minor, self._os_build, self._constants).present() is True:
-            return True
+        # WiFi patches removed
+        # if LegacyWireless(self._xnu_major, self._xnu_minor, self._os_build, self._constants).present() is True:
+        #     return True
+        # if ModernWireless(self._xnu_major, self._xnu_minor, self._os_build, self._constants).present() is True:
+        #     return True
 
         return False
 

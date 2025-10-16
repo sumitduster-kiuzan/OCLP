@@ -18,7 +18,7 @@ from ..support import utilities
 
 from .networking import (
     wired,
-    wireless
+    # wireless  # WiFi patches removed
 )
 from . import (
     bluetooth,

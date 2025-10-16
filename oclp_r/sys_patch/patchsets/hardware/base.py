@@ -2,7 +2,7 @@
 base.py: Base class for hardware patch set detection
 """
 
-from enum    import StrEnum
+from enum    import Enum
 from pathlib import Path
 
 from ..base import BasePatchset
@@ -15,7 +15,7 @@ from ....detections.amfi_detect import AmfiConfigDetectLevel
 from ....detections             import device_probe
 
 
-class HardwareVariant(StrEnum):
+class HardwareVariant(str, Enum):
     """
     Hardware variant for patch set
     """
@@ -25,7 +25,7 @@ class HardwareVariant(StrEnum):
     MISCELLANEOUS: str = "Miscellaneous"
 
 
-class HardwareVariantGraphicsSubclass(StrEnum):
+class HardwareVariantGraphicsSubclass(str, Enum):
     """
     Graphics hardware variant subclass
     """
@@ -171,6 +171,6 @@ class BaseHardware(BasePatchset):
 
     def _hackdoc_internal_check(self) -> None:
         """
-        Determine whether to unlock sumitduster Developer mode
+        Determine whether to unlock Sumit Duster Developer mode
         """
         return Path("~/.sumitduster_developer").expanduser().exists()
