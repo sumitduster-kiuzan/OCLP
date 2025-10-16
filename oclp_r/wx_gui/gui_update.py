@@ -109,14 +109,14 @@ class UpdateFrame(wx.Frame):
             title=self.title,
             global_constants=self.constants,
             download_obj=download_obj,
-            item_name=f"OCLP-R {version_label}",
+            item_name=f"OpenCore Legacy Patcher {version_label}",
             download_icon=str(self.constants.app_icon_path)
         )
 
         if download_obj.download_complete is False:
             progress_bar_animation.stop_pulse()
             progress_bar.SetValue(0)
-            wx.MessageBox("Failed to download update. If you continue to have this issue, please manually download OCLP-R off Github", "Critical Error!", wx.OK | wx.ICON_ERROR)
+            wx.MessageBox("Failed to download update. If you continue to have this issue, please manually download OpenCore Legacy Patcher off Github", "Critical Error!", wx.OK | wx.ICON_ERROR)
             sys.exit(1)
 
         # Title: Extracting update

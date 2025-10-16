@@ -62,7 +62,7 @@ class GenerateMenubar:
         menubar = wx.MenuBar()
         fileMenu = wx.Menu()
 
-        aboutItem = fileMenu.Append(wx.ID_ABOUT, "&About OCLP-R")
+        aboutItem = fileMenu.Append(wx.ID_ABOUT, "&About OpenCore Legacy Patcher")
         fileMenu.AppendSeparator()
         revealLogItem = fileMenu.Append(wx.ID_ANY, "&Reveal Log File")
 
@@ -190,9 +190,9 @@ class CheckProperties:
 
     def host_psp_version(self) -> packaging.version.Version:
         """
-        Grab PatcherSupportPkg version from OCLP-R.plist
+        Grab PatcherSupportPkg version from OpenCore Legacy Patcher.plist
         """
-        oclp_plist_path = "/System/Library/CoreServices/OCLP-R.plist"
+        oclp_plist_path = "/System/Library/CoreServices/OpenCore Legacy Patcher.plist"
         if not Path(oclp_plist_path).exists():
             return packaging.version.Version("0.0.0")
 

@@ -176,7 +176,7 @@ class HardwarePatchsetDetection:
         if self._xnu_major < os_data.big_sur.value:
             return False
 
-        # OCLP-R exposes whether it patched APFS.kext to allow for FileVault
+        # OpenCore Legacy Patcher exposes whether it patched APFS.kext to allow for FileVault
         nvram = utilities.get_nvram("OCLP-Settings", "4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102", decode=True)
         if nvram:
             if "-allow_fv" in nvram:
@@ -282,7 +282,7 @@ class HardwarePatchsetDetection:
         """
         Check if network patches are already applied
         """
-        oclp_patch_path = "/System/Library/CoreServices/OCLP-R.plist"
+        oclp_patch_path = "/System/Library/CoreServices/OpenCore Legacy Patcher.plist"
         if not Path(oclp_patch_path).exists():
             return False
         try:

@@ -326,7 +326,7 @@ class PatchSysVolume:
         """
 
         destination_path = f"{self.mount_location}/System/Library/CoreServices"
-        file_name = "OCLP-R.plist"
+        file_name = "OpenCore Legacy Patcher.plist"
         destination_path_file = f"{destination_path}/{file_name}"
         if sys_patch_helpers.SysPatchHelpers(self.constants).generate_patchset_plist(patchset, file_name, self.kdk_path, self.metallib_path):
             logging.info("- Writing patchset information to Root Volume")

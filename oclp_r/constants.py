@@ -13,10 +13,10 @@ from .detections import device_probe
 class Constants:
     def __init__(self) -> None:
         # Patcher Versioning
-        self.patcher_version:                 str = "2.5.2"  # OCLP-R
+        self.patcher_version:                 str = "2.5.2"  # OpenCore Legacy Patcher
         self.patcher_support_pkg_version:     str = "1.9.5"  # PatcherSupportPkg
         self.copyright_date:                  str = "Copyright © 2020-2025 Dortania and sumitduster"
-        self.patcher_name:                    str = "OCLP-R"
+        self.patcher_name:                    str = "OpenCore Legacy Patcher"
 
         # URLs
         self.url_patcher_support_pkg:         str = "https://github.com/sumitduster/PatcherSupportPkg/releases/download/"
