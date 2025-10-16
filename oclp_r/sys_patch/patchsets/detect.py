@@ -273,9 +273,9 @@ class HardwarePatchsetDetection:
 
     def _hackdoc_internal_check(self) -> None:
         """
-        Determine whether to unlock Hackdoc Developer mode
+        Determine whether to unlock sumitduster Developer mode
         """
-        return Path("~/.hackdoc_developer").expanduser().exists()
+        return Path("~/.sumitduster_developer").expanduser().exists()
 
 
     def _already_has_networking_patches(self) -> bool:

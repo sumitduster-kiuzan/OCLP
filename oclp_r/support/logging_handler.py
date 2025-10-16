@@ -73,13 +73,13 @@ class InitializeLoggingSupport:
             # Likely in an installer environment, store in /Users/Shared
             base_path = Path("/Users/Shared")
         else:
-            # create Hackdoc folder if it doesn't exist
-            base_path = base_path / "Hackdoc"
+            # create sumitduster folder if it doesn't exist
+            base_path = base_path / "sumitduster"
             if not base_path.exists():
                 try:
                     base_path.mkdir()
                 except Exception as e:
-                    print(f"Failed to create Hackdoc folder: {e}")
+                    print(f"Failed to create sumitduster folder: {e}")
                     base_path = Path("/Users/Shared")
 
         self.log_filepath = Path(f"{base_path}/{self.log_filename}").expanduser()
@@ -93,7 +93,7 @@ class InitializeLoggingSupport:
         """
 
         paths = [
-            self.log_filepath.parent,        # ~/Library/Logs/Hackdoc
+            self.log_filepath.parent,        # ~/Library/Logs/sumitduster
             self.log_filepath.parent.parent, # ~/Library/Logs (old location)
         ]
 

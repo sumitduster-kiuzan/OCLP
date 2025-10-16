@@ -22,8 +22,8 @@ datas = [
    ('Universal-Binaries.dmg', '.'),
 ]
 
-if Path("HackdocInternalResources.dmg").exists():
-   datas.append(('HackdocInternalResources.dmg', '.'))
+if Path("sumitdusterInternalResources.dmg").exists():
+   datas.append(('sumitdusterInternalResources.dmg', '.'))
 
 
 a = Analysis(['OCLP-R-GUI.command'],
@@ -71,7 +71,7 @@ coll = COLLECT(exe,
 app = BUNDLE(coll,
              name='OCLP-R.app',
              icon="payloads/Icon/AppIcons/OC-Patcher.icns",
-             bundle_identifier="com.hackdoc.oclp-r",
+             bundle_identifier="com.sumitduster.oclp-r",
              info_plist={
                 "CFBundleName": "OCLP-R",
                 "CFBundleVersion": constants.Constants().patcher_version,

@@ -1,5 +1,5 @@
 CC=clang
-OUTPUT=com.hackdoc.oclp-r.privileged-helper
+OUTPUT=com.sumitduster.oclp-r.privileged-helper
 
 all: clean release
 

@@ -1,5 +1,5 @@
 """
-dmg_mount.py: PatcherSupportPkg DMG Mounting. Handles Universal-Binaries and HackdocInternalResources DMGs.
+dmg_mount.py: PatcherSupportPkg DMG Mounting. Handles Universal-Binaries and sumitdusterInternalResources DMGs.
 """
 
 import logging
@@ -49,30 +49,30 @@ class PatcherSupportPkgMount:
 
     def _mount_hackdoc_internal_resources_dmg(self) -> bool:
         """
-        Mount PatcherSupportPkg's HackdocInternalResources.dmg (if available)
+        Mount PatcherSupportPkg's sumitdusterInternalResources.dmg (if available)
         """
         if not Path(self.constants.overlay_psp_path_dmg).exists():
             return True
-        if not Path("~/.hackdoc_developer").expanduser().exists():
+        if not Path("~/.sumitduster_developer").expanduser().exists():
             return True
         if self.constants.cli_mode is True:
             return True
 
-        logging.info("- Found HackdocInternal resources, mounting...")
+        logging.info("- Found sumitdusterInternal resources, mounting...")
 
         for i in range(3):
             key = self._request_decryption_key(i)
             output = subprocess.run(
                 [
                     "/usr/bin/hdiutil", "attach", "-noverify", f"{self.constants.overlay_psp_path_dmg}",
-                    "-mountpoint", Path(self.constants.payload_path / Path("HackdocInternal")),
+                    "-mountpoint", Path(self.constants.payload_path / Path("sumitdusterInternal")),
                     "-nobrowse",
                     "-passphrase", key
                 ],
                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT
             )
             if output.returncode != 0:
-                logging.info("- Failed to mount HackdocInternal resources")
+                logging.info("- Failed to mount sumitdusterInternal resources")
                 subprocess_wrapper.log(output)
 
                 if "Authentication error" not in output.stdout.decode():
@@ -84,22 +84,22 @@ class PatcherSupportPkgMount:
                 continue
             break
 
-        logging.info("- Mounted HackdocInternal resources")
+        logging.info("- Mounted sumitdusterInternal resources")
         return self._merge_hackdoc_internal_resources()
 
 
     def _merge_hackdoc_internal_resources(self) -> bool:
         """
-        Merge HackdocInternal resources with Universal-Binaries
+        Merge sumitdusterInternal resources with Universal-Binaries
         """
         result = subprocess.run(
             [
-                "/usr/bin/ditto", f"{self.constants.payload_path / Path('HackdocInternal')}", f"{self.constants.payload_path / Path('Universal-Binaries')}"
+                "/usr/bin/ditto", f"{self.constants.payload_path / Path('sumitdusterInternal')}", f"{self.constants.payload_path / Path('Universal-Binaries')}"
             ],
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT
         )
         if result.returncode != 0:
-            logging.info("- Failed to merge HackdocInternal resources")
+            logging.info("- Failed to merge sumitdusterInternal resources")
             subprocess_wrapper.log(result)
             return False
 
@@ -108,15 +108,15 @@ class PatcherSupportPkgMount:
 
     def _request_decryption_key(self, attempt: int) -> str:
         """
-        Fetch the decryption key for HackdocInternalResources.dmg
+        Fetch the decryption key for sumitdusterInternalResources.dmg
         """
         # Only return on first attempt
         if attempt == 0:
-            if Path("~/.hackdoc_developer_key").expanduser().exists():
-                return Path("~/.hackdoc_developer_key").expanduser().read_text().strip()
+            if Path("~/.sumitduster_developer_key").expanduser().exists():
+                return Path("~/.sumitduster_developer_key").expanduser().read_text().strip()
 
         password = ""
-        msg = "Welcome to the HackdocInternal Program, please provide the decryption key to access internal resources. Press cancel to skip."
+        msg = "Welcome to the sumitdusterInternal Program, please provide the decryption key to access internal resources. Press cancel to skip."
         if attempt > 0:
             msg = f"Decryption failed, please try again. {2 - attempt} attempts remaining. "
 
@@ -141,7 +141,7 @@ class PatcherSupportPkgMount:
         try:
             applescript.AppleScript(
                 f"""
-                display dialog "Failed to mount HackdocInternal resources, please file an internal radar." with title "OCLP-R" with icon file "{self.icon_path}"
+                display dialog "Failed to mount sumitdusterInternal resources, please file an internal radar." with title "OCLP-R" with icon file "{self.icon_path}"
                 """
             ).run()
         except Exception as e:
@@ -155,7 +155,7 @@ class PatcherSupportPkgMount:
         try:
             applescript.AppleScript(
                 f"""
-                display dialog "Failed to mount HackdocInternal resources, too many incorrect passwords. If this continues with the correct decryption key, please file an internal radar." with title "OCLP-R" with icon file "{self.icon_path}"
+                display dialog "Failed to mount sumitdusterInternal resources, too many incorrect passwords. If this continues with the correct decryption key, please file an internal radar." with title "OCLP-R" with icon file "{self.icon_path}"
                 """
             ).run()
         except Exception as e:

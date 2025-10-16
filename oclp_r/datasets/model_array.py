@@ -137,7 +137,7 @@ LegacyAudio = [
     "iMac12,1",
     "iMac12,2",
     "MacPro3,1",
-    "Hackdoc1,1",
+    "sumitduster1,1",
 ]
 
 # GPU
@@ -220,7 +220,7 @@ LegacyGPU = [
     "iMac11,3",  # AMD 5000
     "iMac12,1",  # AMD 6000
     "iMac12,2",  # AMD 6000
-    "Hackdoc1,1",  # RTX 3080
+    "sumitduster1,1",  # RTX 3080
 ]
 
 LegacyBrightness = [
@@ -245,7 +245,7 @@ DualGPUPatch = [
     "iMac13,2",
     "iMac14,2",
     "iMac14,3",
-    "Hackdoc1,1",
+    "sumitduster1,1",
 ]
 
 IntelNvidiaDRM = [
@@ -256,12 +256,12 @@ IntelNvidiaDRM = [
 ]
 
 # Mac Pro and Xserve
-MacPro = ["MacPro3,1", "MacPro4,1", "MacPro5,1", "Xserve2,1", "Xserve3,1", "Hackdoc1,1"]
+MacPro = ["MacPro3,1", "MacPro4,1", "MacPro5,1", "Xserve2,1", "Xserve3,1", "sumitduster1,1"]
 
 # MXM iMac
-MXMiMac = ["iMac11,1", "iMac11,2", "iMac11,3", "iMac10,1", "iMac12,1", "iMac12,2", "Hackdoc1,1"]
+MXMiMac = ["iMac11,1", "iMac11,2", "iMac11,3", "iMac10,1", "iMac12,1", "iMac12,2", "sumitduster1,1"]
 
-NoAGPMSupport = ["MacBookPro4,1", "iMac7,1", "iMac8,1", "MacPro3,1", "Xserve2,1", "Hackdoc1,1"]
+NoAGPMSupport = ["MacBookPro4,1", "iMac7,1", "iMac8,1", "MacPro3,1", "Xserve2,1", "sumitduster1,1"]
 
 AGDPSupport = [
     "MacBookPro9,1",

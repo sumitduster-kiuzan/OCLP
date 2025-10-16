@@ -8,8 +8,8 @@ A Python-based project revolving around [Acidanthera's OpenCorePkg](https://gith
 Our project's main goal is to breathe new life into Macs no longer supported by Apple, allowing for the installation and usage of macOS Big Sur and newer on machines as old as 2007.
 
 ----------
-![GitHub all releases](https://img.shields.io/github/release/hackdoc/OCLP-R)
-![GitHub all releases](https://img.shields.io/github/downloads/hackdoc/OCLP-R/total?color=white&style=plastic) ![GitHub top language](https://img.shields.io/github/languages/top/hackdoc/OCLP-R?color=4B8BBE&style=plastic)
+![GitHub all releases](https://img.shields.io/github/release/sumitduster/OCLP-R)
+![GitHub all releases](https://img.shields.io/github/downloads/sumitduster/OCLP-R/total?color=white&style=plastic) ![GitHub top language](https://img.shields.io/github/languages/top/sumitduster/OCLP-R?color=4B8BBE&style=plastic)
 
 ----------
 
@@ -51,7 +51,7 @@ To run the project from source, see here: [Build and run from source](./SOURCE.m
 
 * [Acidanthera](https://github.com/Acidanthera)
   * OpenCorePkg, as well as many of the core kexts and tools
-* [Hackdoc](https://github.com/hackdoc)
+* [sumitduster](https://github.com/sumitduster)
   * Main co-author
 * [vit9696](https://github.com/vit9696)
   * Endless amount of help troubleshooting, determining fixes and writing patches
