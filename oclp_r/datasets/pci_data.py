@@ -1166,12 +1166,12 @@ class broadcom_ids:
         0x4488,  # BCM4377b
         0x4425,  # BCM4378 (M1)
         0x4433,  # BCM4387 (M1 Pro/Max/Ultra)
+        0x43BA,  # BCM43602 (AppleBCMWLANCompanion)
+        0x43A3,  # BCM4350 (AppleBCMWLANCompanion)
     ]
 
     AirPortBrcmNIC = [
         # AirPortBrcmNIC IDs
-        0x43BA,  # BCM43602
-        0x43A3,  # BCM4350
         0x43A0,  # BCM4360
     ]
 

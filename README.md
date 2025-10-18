@@ -19,6 +19,7 @@ Noteworthy features of OpenCore Legacy Patcher:
 * Native Over the Air (OTA) System Updates
 * Supports Penryn and newer Macs
 * Full support for WPA Wi-Fi and Personal Hotspot on BCM943224 and newer wireless chipsets
+* AppleBCMWLANCompanion support for BCM43602 and BCM4350 chips on macOS Sonoma, Sequoia, and Tahoe
 * System Integrity Protection, FileVault 2, .im4m Secure Boot and Vaulting
 * Recovery OS, Safe Mode and Single-user Mode booting on non-native OSes
 * Unlocks features such as Sidecar and AirPlay to Mac even on native Macs
