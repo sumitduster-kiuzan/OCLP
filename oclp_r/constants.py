@@ -82,6 +82,10 @@ class Constants:
         self.corecaptureelcap_version: str = "1.0.2"  # corecaptureElCap
         self.io80211elcap_version:     str = "2.0.1"  # IO80211ElCap
         self.io80211legacy_version:    str = "1.0.0"  # IO80211FamilyLegacy (Ventura)
+
+        ## Third Party - FireWolf
+        ## https://github.com/0xFireWolf
+        self.apple_bcmwlan_companion_version: str = "1.0.0"  # AppleBCMWLANCompanion
         self.ioskywalk_version:        str = "1.2.0"  # IOSkywalkFamily (Ventura)
         self.bigsursdxc_version:       str = "1.0.0"  # BigSurSDXC
         self.monterey_ahci_version:    str = "1.0.0"  # CatalinaAHCI
@@ -598,6 +602,10 @@ class Constants:
     @property
     def gpu_wake_path(self):
         return self.payload_kexts_path / Path(f"Misc/AMDGPUWakeHandler-v{self.gpu_wake_version}.zip")
+
+    @property
+    def apple_bcmwlan_companion_path(self):
+        return self.payload_kexts_path / Path(f"FireWolf/AppleBCMWLANCompanion-v{self.apple_bcmwlan_companion_version}-{self.kext_variant}.zip")
 
     @property
     def apple_trackpad_path(self):
