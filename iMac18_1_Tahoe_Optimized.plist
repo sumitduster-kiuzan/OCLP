@@ -267,6 +267,24 @@
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>AppleBCMWLANCompanion.kext</string>
+				<key>Comment</key>
+				<string>AppleBCMWLANCompanion 1.0.0 - Broadcom Wi-Fi Support for Tahoe</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AppleBCMWLANCompanion</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string>23.0.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
 		</array>
 		<key>Block</key>
 		<array/>
@@ -474,12 +492,12 @@
 				<key>OCLP-Version</key>
 				<string>3.0.1</string>
 				<key>boot-args</key>
-				<string>-lilubetaall -wegnoegpu agdpmod=pikera shikigva=80 unfairgva=1 -wegtree alcid=1</string>
+				<string>-lilubetaall -wegnoegpu agdpmod=pikera shikigva=80 unfairgva=1 -wegtree alcid=1 -bcmcdbg -bcmcbeta</string>
 			</dict>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>boot-args</key>
-				<string>-lilubetaall -wegnoegpu agdpmod=pikera shikigva=80 unfairgva=1 -wegtree alcid=1</string>
+				<string>-lilubetaall -wegnoegpu agdpmod=pikera shikigva=80 unfairgva=1 -wegtree alcid=1 -bcmcdbg -bcmcbeta</string>
 			</dict>
 		</dict>
 		<key>Delete</key>

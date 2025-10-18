@@ -250,4 +250,16 @@ class BuildSupport:
                         raise Exception(f" - Unknown plugin found: {plugin.name}")
                     shutil.rmtree(plugin)
 
+        # Remove unused UEFI drivers (not enabled in config)
+        for driver_file in Path(self.constants.opencore_release_folder / Path("EFI/OC/Drivers")).glob("*"):
+            if driver_file.is_file():
+                is_enabled = False
+                for enabled_driver in self.config["UEFI"]["Drivers"]:
+                    if enabled_driver["Path"] == driver_file.name and enabled_driver.get("Enabled", False):
+                        is_enabled = True
+                        break
+                if not is_enabled:
+                    logging.info(f"  Removing unused driver: {driver_file.name}")
+                    driver_file.unlink()
+
         Path(self.constants.opencore_zip_copied).unlink()

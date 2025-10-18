@@ -127,6 +127,10 @@ class Constants:
         ## Jazzzny
         self.legacy_keyboard: str = "1.0.0"  # LegacyKeyboardInjector - Jazzzny
 
+        ## 0xFireWolf
+        ## https://github.com/0xFireWolf/AppleBCMWLANCompanion
+        self.bcmwlancompanion_version: str = "1.0.0"  # AppleBCMWLANCompanion - Broadcom Wi-Fi for Tahoe
+
         # Get resource path
         self.current_path:  Path = Path(__file__).parent.parent.resolve()
         self.original_path: Path = Path(__file__).parent.parent.resolve()
@@ -208,6 +212,7 @@ class Constants:
         self.firewire_boot: bool = False  # Allow macOS FireWire Boot (kernel)
         self.nvme_boot:     bool = False  # Allow UEFI NVMe Boot
         self.xhci_boot:     bool = False  # Allow UEFI XHCI Boot
+        self.enable_wireless_tahoe: bool = True  # Enable AppleBCMWLANCompanion for Tahoe
 
         ## Graphics Settings
         self.allow_ts2_accel:             bool = True  #  Set TeraScale 2 Acceleration support
@@ -501,6 +506,10 @@ class Constants:
     @property
     def corecaptureelcap_path(self):
         return self.payload_kexts_path / Path(f"Wifi/corecaptureElCap-v{self.corecaptureelcap_version}.zip")
+
+    @property
+    def bcmwlancompanion_path(self):
+        return self.payload_kexts_path / Path(f"Wifi/AppleBCMWLANCompanion-v{self.bcmwlancompanion_version}.zip")
 
     @property
     def io80211elcap_path(self):

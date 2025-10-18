@@ -48,13 +48,29 @@ This document outlines the comprehensive optimizations applied to OpenCore Legac
   - `unfairgva=1`: DRM support
   - `-wegtree`: WhateverGreen tree
   - `alcid=1`: Audio layout ID
+  - `-bcmcdbg`: Broadcom Wi-Fi debug logging (optional)
+  - `-bcmcbeta`: Broadcom Wi-Fi beta features
 - **Benefits**: Enhanced compatibility, better DRM support
+
+### 6. **Broadcom Wi-Fi Support** 📶 **NEW!**
+- **AppleBCMWLANCompanion 1.0.0**: Legacy Broadcom Wi-Fi without root patches!
+- **Supported Cards**:
+  - BCM43602 (DW1830, BCM943602BAED, BCM943602CDP, BCM943602CS)
+  - BCM4350 (DW1820A, BCM94350ZAE)
+- **Key Benefits**:
+  - No root volume modifications required
+  - Works with SIP enabled
+  - Native integration with Apple's Wi-Fi driver
+  - Better performance and stability
+- **Status**: Beta testing (as of Sep 2025)
+- **Credit**: [0xFireWolf](https://github.com/0xFireWolf/AppleBCMWLANCompanion)
 
 ## 📁 Files Created
 
-1. **`iMac18_1_Tahoe_Optimized.plist`**: Complete OpenCore configuration
+1. **`iMac18_1_Tahoe_Optimized.plist`**: Complete OpenCore configuration with Wi-Fi support
 2. **`Tahoe_Optimization_Script.py`**: Automated optimization script
-3. **`TAHOE_OPTIMIZATIONS_README.md`**: This documentation
+3. **`TAHOE_OPTIMIZATIONS_README.md`**: This comprehensive documentation
+4. **`BROADCOM_WIFI_TAHOE_GUIDE.md`**: Detailed Broadcom Wi-Fi setup guide
 
 ## 🎯 Performance Benefits
 
@@ -111,6 +127,7 @@ This document outlines the comprehensive optimizations applied to OpenCore Legac
 - **Optimal Graphics Settings**: Tailored for Intel Iris Plus Graphics 640
 - **Audio Layout**: Optimized for iMac18,1 audio hardware
 - **USB Configuration**: Perfect for iMac18,1 USB ports
+- **Wi-Fi Support**: Optional Broadcom Wi-Fi card support (if you have a compatible card)
 
 ## 📊 Compatibility Matrix
 
@@ -121,6 +138,9 @@ This document outlines the comprehensive optimizations applied to OpenCore Legac
 | USB | ✅ | ✅ | Enhanced |
 | Power Management | ✅ | ✅ | Optimized |
 | Kernel | ✅ | ✅ | Stable |
+| Wi-Fi (Broadcom) | ✅ | ⚠️ | Beta Support* |
+
+*Requires compatible Broadcom Wi-Fi card (BCM43602/BCM4350)
 
 ## 🚨 Important Notes
 

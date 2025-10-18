@@ -18,7 +18,8 @@ from ..support import utilities
 
 from .networking import (
     wired,
-    # wireless  # WiFi patches removed
+    wireless_tahoe,  # Broadcom Wi-Fi for Tahoe (AppleBCMWLANCompanion)
+    # wireless  # Old WiFi patches removed
 )
 from . import (
     bluetooth,
@@ -74,6 +75,7 @@ class BuildOpenCore:
         for function in [
             firmware.BuildFirmware,
             wired.BuildWiredNetworking,
+            wireless_tahoe.BuildWirelessNetworkingTahoe,  # Broadcom Wi-Fi for Tahoe
             graphics_audio.BuildGraphicsAudio,
             bluetooth.BuildBluetooth,
             storage.BuildStorage,
