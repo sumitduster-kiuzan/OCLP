@@ -169,7 +169,7 @@ class BaseHardware(BasePatchset):
         return "12.5-23.4"
 
 
-    def _hackdoc_internal_check(self) -> None:
+    def _sumitduster_internal_check(self) -> None:
         """
         Determine whether to unlock Sumit Duster Developer mode
         """

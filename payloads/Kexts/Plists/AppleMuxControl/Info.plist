@@ -366,7 +366,7 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © Hackdoc</string>
+	<string>Copyright © sumitduster</string>
 	<key>#OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.driver.AppleMuxControl</key>

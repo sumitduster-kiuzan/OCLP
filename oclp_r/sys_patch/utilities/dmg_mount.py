@@ -47,7 +47,7 @@ class PatcherSupportPkgMount:
         return True
 
 
-    def _mount_hackdoc_internal_resources_dmg(self) -> bool:
+    def _mount_sumitduster_internal_resources_dmg(self) -> bool:
         """
         Mount PatcherSupportPkg's sumitdusterInternalResources.dmg (if available)
         """
@@ -85,10 +85,10 @@ class PatcherSupportPkgMount:
             break
 
         logging.info("- Mounted sumitdusterInternal resources")
-        return self._merge_hackdoc_internal_resources()
+        return self._merge_sumitduster_internal_resources()
 
 
-    def _merge_hackdoc_internal_resources(self) -> bool:
+    def _merge_sumitduster_internal_resources(self) -> bool:
         """
         Merge sumitdusterInternal resources with Universal-Binaries
         """
@@ -177,7 +177,7 @@ class PatcherSupportPkgMount:
         if self._mount_universal_binaries_dmg() is False:
             return False
 
-        if self._mount_hackdoc_internal_resources_dmg() is False:
+        if self._mount_sumitduster_internal_resources_dmg() is False:
             return False
 
         return True

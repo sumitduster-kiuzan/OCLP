@@ -154,7 +154,7 @@ class HardwarePatchsetDetection:
         """
         _min_os = os_data.big_sur.value
         _max_os = os_data.tahoe.value  # Updated to support Tahoe (macOS 15.x)
-        if self._hackdoc_internal_check() is True:
+        if self._sumitduster_internal_check() is True:
             return False
         if self._xnu_major < _min_os or self._xnu_major > _max_os:
             return True
@@ -273,7 +273,7 @@ class HardwarePatchsetDetection:
         return level
 
 
-    def _hackdoc_internal_check(self) -> None:
+    def _sumitduster_internal_check(self) -> None:
         """
         Determine whether to unlock Sumit Duster Developer mode
         """
