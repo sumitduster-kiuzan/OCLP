@@ -33,6 +33,7 @@ from .hardware.graphics import (
     amd_vega,
 )
 from .hardware.networking import (
+    apple_bcmwlan_companion,
     legacy_wireless,
     modern_wireless,
 )
@@ -124,6 +125,7 @@ class HardwarePatchsetDetection:
             amd_polaris.AMDPolaris,
             amd_vega.AMDVega,
 
+            apple_bcmwlan_companion.AppleBCMWLANCompanion,
             legacy_wireless.LegacyWireless,
             modern_wireless.ModernWireless,
 

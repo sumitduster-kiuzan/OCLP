@@ -37,6 +37,7 @@ class Constants:
         self.whatevergreen_version:      str = "1.6.9"  #      WhateverGreen
         self.whatevergreen_navi_version: str = "1.6.9-Navi"  # WhateverGreen (Navi Patch)
         self.airportbcrmfixup_version:   str = "2.1.9"  #      AirPortBrcmFixup
+        self.apple_bcmwlan_companion_version: str = "1.0.0"  # AppleBCMWLANCompanion
         self.nvmefix_version:            str = "1.1.2"  #      NVMeFix
         self.applealc_version:           str = "1.6.3"  #      AppleALC
         self.restrictevents_version:     str = "1.1.5"  #      RestrictEvents
@@ -381,6 +382,10 @@ class Constants:
     @property
     def airportbcrmfixup_path(self):
         return self.payload_kexts_path / Path(f"Acidanthera/AirportBrcmFixup-v{self.airportbcrmfixup_version}-{self.kext_variant}.zip")
+
+    @property
+    def apple_bcmwlan_companion_path(self):
+        return self.payload_kexts_path / Path(f"Wifi/AppleBCMWLANCompanion-v{self.apple_bcmwlan_companion_version}-RELEASE.zip")
 
     @property
     def restrictevents_path(self):

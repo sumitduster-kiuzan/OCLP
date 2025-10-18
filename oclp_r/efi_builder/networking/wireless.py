@@ -79,6 +79,8 @@ class BuildWirelessNetworking:
                 support.BuildSupport(self.model, self.constants, self.config).enable_kext("corecaptureElCap.kext", self.constants.corecaptureelcap_version, self.constants.corecaptureelcap_path)
                 support.BuildSupport(self.model, self.constants, self.config).enable_kext("IO80211ElCap.kext", self.constants.io80211elcap_version, self.constants.io80211elcap_path)
                 support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("IO80211ElCap.kext/Contents/PlugIns/AppleAirPortBrcm43224.kext")["Enabled"] = True
+            elif self.computer.wifi.chipset == device_probe.Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe:
+                self._apple_bcmwlan_companion()
         elif isinstance(self.computer.wifi, device_probe.Atheros) and self.computer.wifi.chipset == device_probe.Atheros.Chipsets.AirPortAtheros40:
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("corecaptureElCap.kext", self.constants.corecaptureelcap_version, self.constants.corecaptureelcap_path)
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("IO80211ElCap.kext", self.constants.io80211elcap_version, self.constants.io80211elcap_path)
@@ -175,3 +177,50 @@ class BuildWirelessNetworking:
         if not self.constants.custom_model and self.computer.wifi and self.constants.validate is False and self.computer.wifi.country_code:
             logging.info(f"- Applying fake ID for WiFi, setting Country Code: {self.computer.wifi.country_code}")
             self.config["DeviceProperties"]["Add"][arpt_path] = {"brcmfx-country": self.computer.wifi.country_code}
+
+
+    def _apple_bcmwlan_companion(self) -> None:
+        """
+        AppleBCMWLANCompanion Handler for BCM43602 and BCM4350 chipsets
+        
+        AppleBCMWLANCompanion provides native Wi-Fi support for BCM43602 and BCM4350
+        chips on macOS Sonoma, Sequoia, and Tahoe without root patches
+        """
+        logging.info("- Enabling AppleBCMWLANCompanion support")
+        
+        # Enable the AppleBCMWLANCompanion kext
+        support.BuildSupport(self.model, self.constants, self.config).enable_kext("AppleBCMWLANCompanion.kext", "1.0.0", self.constants.apple_bcmwlan_companion_path)
+        
+        # Add required boot argument
+        logging.info("- Adding required boot argument: wlan.pcie.detectsabotage=0")
+        self.config["NVRAM"]["Add"]["7C436110-AB2A-4BBB-A880-FE41995C9F82"]["boot-args"] += " wlan.pcie.detectsabotage=0"
+        
+        # Add device properties for firmware
+        if self.computer.wifi and self.computer.wifi.pci_path:
+            wifi_path = self.computer.wifi.pci_path
+            logging.info(f"- Found WiFi device at {wifi_path}")
+            
+            # Determine chip type and firmware
+            device_id = self.computer.wifi.device_id
+            if device_id == 0x43BA:  # BCM43602
+                firmware_path = "/usr/local/share/firmware/wifi/brcmfmac43602-pcie_7.35.177.61.bin"
+                firmware_hash = "bf4cfc23ee952a3d82ef33a0f5f87853201c98f1bed034876a910f354f37862d"
+                srom_slide = "00000000"
+            elif device_id == 0x43A3:  # BCM4350
+                firmware_path = "/usr/local/share/firmware/wifi/brcmfmac4350-pcie_7.35.180.119.bin"
+                firmware_hash = "a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef1234567890"  # Placeholder
+                srom_slide = "40000000"
+            else:
+                logging.warning(f"- Unknown device ID: 0x{device_id:04X}")
+                return
+            
+            # Add device properties
+            self.config["DeviceProperties"]["Add"][wifi_path] = {
+                "bcmc-firmware-path": firmware_path,
+                "bcmc-firmware-hash": firmware_hash,
+                "bcmc-srom-slide": srom_slide
+            }
+            
+            logging.info(f"- Added device properties for {firmware_path}")
+        else:
+            logging.warning("- No WiFi PCI path found, device properties not added")
