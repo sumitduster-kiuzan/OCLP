@@ -1,5 +1,9 @@
 # OCLP-R changelog
 ## 2.6.0
+- Rename Pyquick to Hackdoc
+- Update SOURCE.md
+- README tweaks and patch bug fixes
+- Update Hackdoc, fix sumitduster and Wi‑Fi, compile (#1)
 ## 2.5.0
 - Add macOS 26 constants
 - Allow macOS 26 Beta download
