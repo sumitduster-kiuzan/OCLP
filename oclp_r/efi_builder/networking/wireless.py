@@ -51,7 +51,10 @@ class BuildWirelessNetworking:
         self.config["#Revision"]["Hardware-Wifi"] = f"{utilities.friendly_hex(self.computer.wifi.vendor_id)}:{utilities.friendly_hex(self.computer.wifi.device_id)}"
 
         if isinstance(self.computer.wifi, device_probe.Broadcom):
-            if self.computer.wifi.chipset in [device_probe.Broadcom.Chipsets.AirportBrcmNIC, device_probe.Broadcom.Chipsets.AirPortBrcm4360]:
+            if self.computer.wifi.chipset == device_probe.Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe:
+                logging.info("- Enabling AppleBCMWLANCompanion for modern Broadcom chipsets")
+                support.BuildSupport(self.model, self.constants, self.config).enable_kext("AppleBCMWLANCompanion.kext", self.constants.applebcmwlancompanion_version, self.constants.applebcmwlancompanion_path)
+            elif self.computer.wifi.chipset in [device_probe.Broadcom.Chipsets.AirportBrcmNIC, device_probe.Broadcom.Chipsets.AirPortBrcm4360]:
                 support.BuildSupport(self.model, self.constants, self.config).enable_kext("IOSkywalkFamily.kext", self.constants.ioskywalk_version, self.constants.ioskywalk_path)
                 support.BuildSupport(self.model, self.constants, self.config).enable_kext("IO80211FamilyLegacy.kext", self.constants.io80211legacy_version, self.constants.io80211legacy_path)
                 support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("IO80211FamilyLegacy.kext/Contents/PlugIns/AirPortBrcmNIC.kext")["Enabled"] = True
@@ -112,6 +115,9 @@ class BuildWirelessNetworking:
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("corecaptureElCap.kext", self.constants.corecaptureelcap_version, self.constants.corecaptureelcap_path)
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("IO80211ElCap.kext", self.constants.io80211elcap_version, self.constants.io80211elcap_path)
             support.BuildSupport(self.model, self.constants, self.config).get_kext_by_bundle_path("IO80211ElCap.kext/Contents/PlugIns/AirPortAtheros40.kext")["Enabled"] = True
+        elif smbios_data.smbios_dictionary[self.model]["Wireless Model"] == device_probe.Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe:
+            logging.info("- Enabling AppleBCMWLANCompanion Support")
+            support.BuildSupport(self.model, self.constants, self.config).enable_kext("AppleBCMWLANCompanion.kext", self.constants.applebcmwlancompanion_version, self.constants.applebcmwlancompanion_path)
         elif smbios_data.smbios_dictionary[self.model]["Wireless Model"] == device_probe.Broadcom.Chipsets.AirportBrcmNIC:
             support.BuildSupport(self.model, self.constants, self.config).enable_kext("AirportBrcmFixup.kext", self.constants.airportbcrmfixup_version, self.constants.airportbcrmfixup_path)
 

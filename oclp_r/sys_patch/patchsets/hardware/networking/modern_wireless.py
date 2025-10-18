@@ -35,6 +35,8 @@ class ModernWireless(BaseHardware):
                 device_probe.Broadcom.Chipsets.AirportBrcmNIC,
                 # We don't officially support this chipset, however we'll throw a bone to hackintosh users
                 device_probe.Broadcom.Chipsets.AirPortBrcmNICThirdParty,
+                # AppleBCMWLANBusInterfacePCIe with AppleBCMWLANCompanion support
+                device_probe.Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe,
             ]
         )
 
