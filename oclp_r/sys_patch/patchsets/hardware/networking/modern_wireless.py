@@ -28,6 +28,8 @@ class ModernWireless(BaseHardware):
     def present(self) -> bool:
         """
         Targeting Modern Wireless
+        
+        Note: AppleBCMWLANCompanion takes priority over root patches for supported devices
         """
         return isinstance(self._computer.wifi, device_probe.Broadcom) and (
             self._computer.wifi.chipset in [
@@ -36,6 +38,10 @@ class ModernWireless(BaseHardware):
                 # We don't officially support this chipset, however we'll throw a bone to hackintosh users
                 device_probe.Broadcom.Chipsets.AirPortBrcmNICThirdParty,
             ]
+        ) and (
+            # Exclude AppleBCMWLANCompanion devices on Sonoma+ to avoid conflicts
+            self._computer.wifi.chipset != device_probe.Broadcom.Chipsets.AppleBCMWLANCompanion
+            or self._xnu_major < os_data.sonoma.value
         )
 
 

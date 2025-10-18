@@ -35,6 +35,7 @@ from .hardware.graphics import (
 from .hardware.networking import (
     legacy_wireless,
     modern_wireless,
+    apple_bcmwlan_companion,
 )
 from .hardware.misc import (
     display_backlight,
@@ -126,6 +127,7 @@ class HardwarePatchsetDetection:
 
             legacy_wireless.LegacyWireless,
             modern_wireless.ModernWireless,
+            apple_bcmwlan_companion.AppleBCMWLANCompanion,
 
             display_backlight.DisplayBacklight,
             gmux.GraphicsMultiplexer,

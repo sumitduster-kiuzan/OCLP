@@ -513,6 +513,7 @@ class Broadcom(WirelessCard):
         AirPortBrcm4360 = "AirPortBrcm4360 supported"
         AirPortBrcm4331 = "AirPortBrcm4331 supported"
         AirPortBrcm43224 = "AppleAirPortBrcm43224 supported"
+        AppleBCMWLANCompanion = "AppleBCMWLANCompanion supported"
         Unknown = "Unknown"
 
     chipset: Chipsets = field(init=False)
@@ -520,6 +521,8 @@ class Broadcom(WirelessCard):
     def detect_chipset(self):
         if self.device_id in pci_data.broadcom_ids.AppleBCMWLANBusInterfacePCIe:
             self.chipset = Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe
+        elif self.device_id in pci_data.broadcom_ids.AppleBCMWLANCompanion:
+            self.chipset = Broadcom.Chipsets.AppleBCMWLANCompanion
         elif self.device_id in pci_data.broadcom_ids.AirPortBrcmNIC:
             self.chipset = Broadcom.Chipsets.AirportBrcmNIC
         elif self.device_id in pci_data.broadcom_ids.AirPortBrcmNICThirdParty:

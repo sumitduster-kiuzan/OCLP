@@ -1175,6 +1175,13 @@ class broadcom_ids:
         0x43A0,  # BCM4360
     ]
 
+    # AppleBCMWLANCompanion supported devices
+    # These devices can use AppleBCMWLANCompanion kext instead of root patches
+    AppleBCMWLANCompanion = [
+        0x43BA,  # BCM43602 - BCM943602BAED, BCM943602CDP, BCM943602CS, DW1830
+        0x43A3,  # BCM4350 - BCM94350ZAE, DW1820A
+    ]
+
     # Not natively supported, but supported by AirportBrcmFixup
     AirPortBrcmNICThirdParty = [
         0x4357,  # BCM43225
