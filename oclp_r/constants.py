@@ -89,6 +89,10 @@ class Constants:
         ## Apple - Jazzzny Modified
         self.aquantia_version: str = "1.1.0"  # AppleEthernetAbuantiaAqtion
 
+        ## 0xFireWolf
+        ## https://github.com/0xFireWolf
+        self.applebcmwlancompanion_version: str = "1.0.0"  # AppleBCMWLANCompanion
+
         ## sumitduster
         ## https://github.com/sumitduster
         self.backlight_injector_version:     str = "1.1.0"  # BacklightInjector
@@ -513,6 +517,10 @@ class Constants:
     @property
     def ioskywalk_path(self):
         return self.payload_kexts_path / Path(f"Wifi/IOSkywalkFamily-v{self.ioskywalk_version}.zip")
+
+    @property
+    def applebcmwlancompanion_path(self):
+        return self.payload_kexts_path / Path(f"Wifi/AppleBCMWLANCompanion-v{self.applebcmwlancompanion_version}-RELEASE.zip")
 
     @property
     def applealc_path(self):
