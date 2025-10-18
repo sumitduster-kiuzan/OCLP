@@ -1,4 +1,12 @@
 # OCLP-R changelog
+## 3.0.2
+- Complete replacement of "hackdoc" references to "sumitduster"
+  - Updated all method names from `_hackdoc_internal_check()` to `_sumitduster_internal_check()`
+  - Renamed Launch Services plist files from `com.hackdoc.oclp-r.*` to `com.sumitduster.oclp-r.*`
+  - Updated DMG mount methods from `_mount_hackdoc_internal_resources_dmg()` to `_mount_sumitduster_internal_resources_dmg()`
+  - Fixed package.py file references to use new Launch Services filenames
+  - Updated all internal resource references to use "sumitduster" naming convention
+
 ## 3.0.1
 - Complete rebranding to "Sumit Duster"
   - Updated all copyright notices to "Copyright © 2020-2025 Sumit Duster"
