@@ -138,7 +138,8 @@ class BuildFrame(wx.Frame):
         Calls build function and redirects stdout to the text box
         """
         logger = logging.getLogger()
-        logger.addHandler(gui_support.ThreadHandler(self.text_box))
+        thread_handler = gui_support.ThreadHandler(self.text_box)
+        logger.addHandler(thread_handler)
         try:
             build.BuildOpenCore(self.constants.custom_model or self.constants.computer.real_model, self.constants)
             self.build_successful = True
@@ -151,7 +152,12 @@ class BuildFrame(wx.Frame):
                 logging.error("If you continue to see this error, delete the following file and restart the application:")
                 logging.error("Path: /Users/Shared/.com.sumitduster.oclp-r.plist")
 
-        logger.removeHandler(logger.handlers[2])
+        finally:
+            # Ensure we remove the specific handler we added, regardless of other handlers' order
+            try:
+                logger.removeHandler(thread_handler)
+            except Exception:
+                pass
 
 
     def on_return_to_main_menu(self, event: wx.Event = None) -> None:

@@ -9,7 +9,15 @@ import logging
 import threading
 import traceback
 import subprocess
-import applescript
+from logging.handlers import RotatingFileHandler
+
+# Guard optional macOS-only dependency
+try:
+    import applescript as _applescript  # type: ignore
+    _HAS_APPLESCRIPT = True
+except Exception:
+    _applescript = None  # type: ignore
+    _HAS_APPLESCRIPT = False
 
 from pathlib import Path
 from datetime import datetime
@@ -133,17 +141,21 @@ class InitializeLoggingSupport:
 
         """
 
+        handlers: list[logging.Handler] = [logging.StreamHandler(stream=sys.stdout)]
+        if log_to_file is True:
+            # Rotate when file approaches 1 MB; keep last 5 logs
+            file_handler = RotatingFileHandler(self.log_filepath, maxBytes=self.max_file_size, backupCount=5)
+            handlers.append(file_handler)
+        else:
+            handlers.append(logging.NullHandler())
+
         logging.basicConfig(
             level=logging.NOTSET,
             format="[%(asctime)s] [%(filename)-32s] [%(lineno)-4d]: %(message)s",
-            handlers=[
-                logging.StreamHandler(stream = sys.stdout),
-                logging.FileHandler(self.log_filepath) if log_to_file is True else logging.NullHandler()
-            ],
+            handlers=handlers,
         )
         logging.getLogger().setLevel(logging.INFO)
         logging.getLogger().handlers[0].setFormatter(logging.Formatter("%(message)s"))
-        logging.getLogger().handlers[1].maxBytes = self.max_file_size
 
 
     def _attempt_initialize_logging_configuration(self) -> None:
@@ -210,8 +222,13 @@ class InitializeLoggingSupport:
             error_msg += "\n\nReveal log file?"
 
             # Ask user if they want to send crash report
+            if not _HAS_APPLESCRIPT or sys.platform != "darwin":
+                return
             try:
-                result = applescript.AppleScript(f'display dialog "{error_msg}" with title "OpenCore Legacy Patcher ({self.constants.patcher_version})" buttons {{"Yes", "No"}} default button "Yes" with icon caution').run()
+                result = _applescript.AppleScript(
+                    f'display dialog "{error_msg}" with title "OpenCore Legacy Patcher ({self.constants.patcher_version})" '
+                    'buttons {"Yes", "No"} default button "Yes" with icon caution'
+                ).run()
             except Exception as e:
                 logging.error(f"Failed to display crash report dialog: {e}")
                 return
