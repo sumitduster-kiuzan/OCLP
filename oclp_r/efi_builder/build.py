@@ -74,7 +74,6 @@ class BuildOpenCore:
         for function in [
             firmware.BuildFirmware,
             wired.BuildWiredNetworking,
-            wireless.BuildWirelessNetworking,
             graphics_audio.BuildGraphicsAudio,
             bluetooth.BuildBluetooth,
             storage.BuildStorage,
