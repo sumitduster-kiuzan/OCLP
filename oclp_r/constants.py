@@ -368,6 +368,10 @@ class Constants:
         return self.payload_path / Path("Kexts")
 
     @property
+    def payload_firmwares_path(self):
+        return self.payload_path / Path("Firmwares")
+
+    @property
     def lilu_path(self):
         return self.payload_kexts_path / Path(f"Acidanthera/Lilu-v{self.lilu_version}-{self.kext_variant}.zip")
 
